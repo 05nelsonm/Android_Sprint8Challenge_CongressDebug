@@ -40,4 +40,32 @@ class DetailsActivityUITest {
         // Check
         onView(withId(R.id.profile_name)).check(matches(withText(congresspersonProfile.displayName)))
     }
+
+    @Test
+    fun b_showParty() {
+        // Setup
+        val congresspersonProfile = CongresspersonProfile(CongressDao.getMemberDetails(MEM_ID))
+        val intent = Intent()
+        intent.putExtra("id", congresspersonProfile.id)
+
+        // Execute
+        activityTestRule.launchActivity(intent)
+
+        // Check
+        onView(withId(R.id.profile_party)).check(matches(withText(congresspersonProfile.party)))
+    }
+
+    @Test
+    fun c_showPhone() {
+        // Setup
+        val congresspersonProfile = CongresspersonProfile(CongressDao.getMemberDetails(MEM_ID))
+        val intent = Intent()
+        intent.putExtra("id", congresspersonProfile.id)
+
+        // Execute
+        activityTestRule.launchActivity(intent)
+
+        // Check
+        onView(withId(R.id.profile_phone)).check(matches(withText(congresspersonProfile.phone)))
+    }
 }
