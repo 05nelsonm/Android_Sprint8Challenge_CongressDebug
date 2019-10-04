@@ -15,6 +15,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
+import com.lambdaschool.congressdataapiaccess.CongressDao
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -75,7 +76,8 @@ class DetailsActivity : AppCompatActivity() {
         viewModel.profile?.observe(this, Observer<CongresspersonProfile> { profile ->
             runOnUiThread {
                 assert(profile != null)
-                profileImage!!.setImageBitmap(profile!!.image)
+                //profileImage!!.setImageBitmap(profile!!.image)
+                profileImage!!.setImageBitmap(CongressDao.getImage(profile!!.id))
                 profileName!!.setText(profile!!.displayName)
                 profileParty!!.setText(profile!!.party)
                 profileDistrict!!.setText(profile!!.location)
