@@ -37,3 +37,10 @@ The requirements for this project are as follows:
 ## Go Further
 
 After you finish with these requirements, spend the rest of the time improving coverage on your unit tests, improving the UI tests and improving overall performance.
+
+## Bug Log
+-clicking on a card resulted in a crash with error reported 'at com.lambdaschool.congressdata.DetailsActivity.onCreate(DetailsActivity.kt:52)'
+
+-Names listed are not capitalized and first name is not appended with a space
+
+-Layout files contained incorrect tools:context values
