@@ -21,7 +21,7 @@ import org.junit.runners.MethodSorters
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class DetailsActivityUITest {
 
-    private var MEM_ID = "A000389"
+    private var MEM_ID = "B001306"
 
     @Rule
     @JvmField
