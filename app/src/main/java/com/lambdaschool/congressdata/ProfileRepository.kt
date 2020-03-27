@@ -13,7 +13,6 @@ object ProfileRepository {
 
         id?.let {
             val profile = CongresspersonProfile(CongressDao.getMemberDetails(id))
-            profile.image = CongressDao.getImage(profile.id)
             profileLiveData.value = profile
         }
         return profileLiveData

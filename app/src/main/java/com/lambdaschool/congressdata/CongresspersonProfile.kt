@@ -7,9 +7,6 @@ import com.lambdaschool.congressdataapiaccess.CongressDao
 import com.lambdaschool.congressdataapiaccess.CongresspersonDetails
 import com.lambdaschool.congressdataapiaccess.Subcommittee
 
-import org.json.JSONArray
-import org.json.JSONException
-
 import java.util.ArrayList
 
 class CongresspersonProfile(
@@ -102,10 +99,6 @@ class CongresspersonProfile(
         return nameBuilder.toString()
     }
 
-    fun setCommittees(committeesJson: JSONArray) {
-        this.committees = parseJsonList(committeesJson, COMMITTEE_DETAIL_TARGET)
-    }
-
     fun setCommittees(committees: List<Committee>) {
         this.committees = ArrayList()
         for (committee in committees) {
@@ -113,31 +106,11 @@ class CongresspersonProfile(
         }
     }
 
-    fun setSubcommittees(subcommitteesJson: JSONArray) {
-        this.committees = parseJsonList(subcommitteesJson, COMMITTEE_DETAIL_TARGET)
-        this.subcommittees = this.committees
-    }
-
     fun setSubcommittees(subcommittees: List<Subcommittee>) {
         this.subcommittees = ArrayList()
         for (subcommittee in subcommittees) {
             this.subcommittees!!.add(subcommittee.name)
         }
-    }
-
-    private fun parseJsonList(array: JSONArray, target: String): ArrayList<String> {
-        val result = ArrayList<String>()
-
-        for (i in 0 until array.length()) {
-            try {
-                result.add(array.getJSONObject(i).getString(target))
-            } catch (e: JSONException) {
-                e.printStackTrace()
-            }
-
-        }
-
-        return result
     }
 
     companion object {
